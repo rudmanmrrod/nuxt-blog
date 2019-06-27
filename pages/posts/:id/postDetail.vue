@@ -7,6 +7,10 @@
           <span>{{ post.description }}</span>
         </div>
       </v-card-title>
+      <v-card-actions>
+        <v-btn flat color="green" @click="editPost">Edit</v-btn>
+        <v-btn flat color="red">Delete</v-btn>
+      </v-card-actions>
     </v-card>
     <v-btn
       color="primary"

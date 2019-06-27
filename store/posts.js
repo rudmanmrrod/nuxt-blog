@@ -29,9 +29,16 @@ export default {
         console.log(error)
       })
     },
-    sendPost({commit}){
-      this.$axios.post('posts/').then(response => {
+    sendPost({commit},data){
+      this.$axios.post('posts/',data).then(response => {
         commit('SEND_POST',response.data) 
+      }).catch(error => {
+        console.log(error)
+      })
+    },
+    updatePost({commit}, data){
+      this.$axios.patch('posts/'+data.id, data).then(response => {
+        commit('GET_SINGLE_POST',response.data)
       }).catch(error => {
         console.log(error)
       })
