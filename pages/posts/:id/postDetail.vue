@@ -9,7 +9,7 @@
       </v-card-title>
       <v-card-actions>
         <v-btn flat color="green" @click="editPost">Edit</v-btn>
-        <v-btn flat color="red">Delete</v-btn>
+        <v-btn flat color="red" @click="show">Delete</v-btn>
       </v-card-actions>
     </v-card>
     <v-btn
@@ -20,6 +20,12 @@
     >
     Back
     </v-btn>
+    <v-dialog
+      v-model="dialog"
+      width="500"
+    >
+      <DeleteModal :id="post.id" @closeModal="close" />
+    </v-dialog>
   </v-flex>
 </template>
 <script src="./postDetail.js"></script> 

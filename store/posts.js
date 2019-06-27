@@ -12,6 +12,10 @@ export default {
     },
     'SEND_POST' (state, payload){
       state.list.push(payload)
+    },
+    'DELETE_POST' (state,id){
+      const index = state.list.findIndex( post => post.id === id)
+      state.list.splice(index,1)
     }
   },
   actions: {
@@ -40,6 +44,13 @@ export default {
       this.$axios.patch('posts/'+data.id, data).then(response => {
         commit('GET_SINGLE_POST',response.data)
       }).catch(error => {
+        console.log(error)
+      })
+    },
+    deletePost({commit},route){
+      this.$axios.delete('posts/'+route).then(
+        commit('DELETE_POST',route)
+      ).catch(error => {
         console.log(error)
       })
     }

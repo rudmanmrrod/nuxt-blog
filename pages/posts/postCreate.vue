@@ -2,7 +2,6 @@
   <v-container>
     <h1>Create</h1>
     <v-layout row wrap>
-
       <v-flex xs12>
         <v-text-field
           label="Title"
